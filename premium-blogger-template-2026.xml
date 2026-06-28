@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:template xmlns='http://www.google.com/ns/blogger' xmlns:data='http://www.google.com/ns/blogger/2008' xmlns:expr='http://www.google.com/ns/blogger/2008' version='2'>
+  <b:blogger>
+    <b:skin><![CDATA[
+      /* ===== Variables ===== */
+      :root{
+        --color-primary: #FF6A00; /* jingga */
+        --color-primary-2: #FF8A33;
+        --color-bg: #FFFFFF;
+        --color-text: #222222;
+        --color-muted: #F6F6F6;
+        --font-sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      }
+
+      html{scroll-behavior:smooth;} /* smooth scrolling */
+      body{font-family:var(--font-sans);color:var(--color-text);background:var(--color-bg);margin:0;line-height:1.6}
+
+      /* Header */
+      .site-header{position:sticky;top:0;z-index:50;background:var(--color-bg);border-bottom:1px solid rgba(0,0,0,0.04)}
+      .site-header .inner{max-width:1100px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between}
+      .logo{font-weight:700;color:var(--color-text);text-decoration:none}
+      .nav{display:flex;gap:18px;align-items:center}
+      .nav a{color:var(--color-text);text-decoration:none;padding:8px 10px;border-radius:6px}
+      .cta{background:var(--color-primary);color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none}
+      .cta:hover{background:var(--color-primary-2)}
+
+      /* Layout */
+      .container{max-width:1100px;margin:22px auto;display:flex;gap:28px;padding:0 18px}
+      main{flex:1}
+      aside.sidebar{width:300px}
+
+      /* Post cards */
+      .post-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.04);margin-bottom:18px}
+      .post-card img{width:100%;height:180px;object-fit:cover;display:block}
+      .post-card .content{padding:12px}
+      .post-card h2{margin:0 0 8px;font-size:1.05rem}
+      .meta{font-size:0.85rem;color:#666}
+
+      /* Footer */
+      .site-footer{background:var(--color-muted);padding:24px 0;margin-top:40px}
+      .site-footer .inner{max-width:1100px;margin:0 auto;padding:0 18px}
+
+      /* Responsive */
+      @media (max-width:900px){
+        .container{flex-direction:column;padding:0 12px}
+        aside.sidebar{width:auto}
+        .post-card img{height:160px}
+      }
+
+      /* Accessibility focus */
+      a:focus{outline:3px solid rgba(255,106,0,0.25);outline-offset:2px}
+
+    ]]></b:skin>
+
+    <b:template-skin/>
+  </b:blogger>
+
+  <head>
+    <meta charset='utf-8'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1'/>
+    <title><data:blog.pageTitle/></title>
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap' rel='stylesheet'>
+
+    <!-- Basic meta for SEO & Social -->
+    <meta expr:name='&quot;description&quot;' expr:content='data:blog.metaDescription'/>
+    <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+    <meta expr:content='data:blog.title' property='og:site_name'/>
+    <meta expr:content='data:blog.metaDescription' property='og:description'/>
+
+    <!-- JSON-LD (Article / Blog) simple template -->
+    <script type='application/ld+json'>
+      {"@context":"https://schema.org","@type":"Blog","name":"<data:blog.title/>","url":"<data:blog.homepageUrl/>"}
+    </script>
+
+    <b:include data='blog' name='all-head-content'/>
+  </head>
+
+  <body>
+    <!-- Header (editable via Layout) -->
+    <b:section id='header' class='site-header' maxwidgets='1' showaddelement='yes'>
+      <b:widget id='Header1' locked='false' title='Header' type='Header'>
+        <b:includable id='main'>
+          <div class='inner'>
+            <a class='logo' expr:href='data:blog.homepageUrl'><data:blog.title/></a>
+
+            <nav class='nav' role='navigation' aria-label='Main menu'>
+              <a href='#home'>Home</a>
+              <a href='#posts'>Posts</a>
+              <a href='#about'>About</a>
+              <a class='cta' href='#subscribe'>Subscribe</a>
+            </nav>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+
+    <!-- Main content area and sidebar (both editable in Layout) -->
+    <div class='container' role='main'>
+      <main>
+        <!-- Featured / Hero (widget) -->
+        <b:section id='featured' class='featured' showaddelement='yes' maxwidgets='1'>
+          <b:widget id='FeaturedPost1' locked='false' title='Featured Post' type='FeaturedPost'/> 
+        </b:section>
+
+        <!-- Post list: use Blog posts widget (editable) -->
+        <b:section id='main-posts' class='main-posts' showaddelement='yes' maxwidgets='1'>
+          <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog'>
+            <b:includable id='main'>
+              <b:loop values='data:posts' var='post'>
+                <article class='post-card'>
+                  <a expr:href='data:post.url'><img expr:src='data:post.firstImageUrl' alt=''/></a>
+                  <div class='content'>
+                    <h2><a expr:href='data:post.url'><data:post.title/></a></h2>
+                    <div class='meta'><data:post.timestamp/> • <data:post.author/></div>
+                    <p><data:post.snippet/></p>
+                  </div>
+                </article>
+              </b:loop>
+            </b:includable>
+          </b:widget>
+        </b:section>
+
+      </main>
+
+      <aside class='sidebar'>
+        <b:section id='sidebar-widgets' class='sidebar-widgets' showaddelement='yes'>
+          <!-- common gadgets: Search, About, Ads, Labels, Recent posts -->
+          <b:widget id='Search1' locked='false' title='Search' type='Search'/> 
+
+          <!-- Ad placeholder: user should replace with AdSense code in Layout or Custom HTML widget -->
+          <b:widget id='AdPlaceholder1' locked='false' title='Iklan (ganti dengan AdSense)' type='HTML'>
+            <b:includable id='main'>
+              <![CDATA[
+                <!-- Tempatkan kode AdSense responsif di sini. Hapus komentar dan ganti dengan Publisher ID Anda. -->
+                <!-- <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-xxxxxxxxxxxx"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+              ]]>
+            </b:includable>
+          </b:widget>
+
+          <b:widget id='Labels1' locked='false' title='Labels' type='LabelList'/> 
+          <b:widget id='PopularPosts1' locked='false' title='Recent Posts' type='PopularPosts'/> 
+        </b:section>
+      </aside>
+    </div>
+
+    <!-- Footer section -->
+    <b:section id='footer' class='site-footer' showaddelement='yes' maxwidgets='3'>
+      <b:widget id='Footer1' locked='false' title='Footer' type='Footer'>
+        <b:includable id='main'>
+          <div class='inner'>
+            <div class='copyright'>&copy; <data:blog.year/> <data:blog.title/>. All rights reserved.</div>
+            <div class='links'><a href='/p/privacy-policy.html'>Privacy Policy</a></div>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+
+    <!-- Conditional ad placement example: only show on post pages -->
+    <b:if cond='data:view.isPost'>
+      <div style='max-width:1100px;margin:18px auto;padding:0 18px'>
+        <!-- In-post ad placeholder (replace with AdSense code) -->
+        <!-- <div class="ad-in-post">[Iklan In-Post]</div> -->
+      </div>
+    </b:if>
+
+    <!-- Minimal JS: hamburger for mobile (if user adds custom menu) and smooth header shadow on scroll -->
+    <script>
+      (function(){
+        var header = document.querySelector('.site-header');
+        if(!header) return;
+        window.addEventListener('scroll', function(){
+          if(window.scrollY>6) header.style.boxShadow='0 6px 18px rgba(0,0,0,0.06)';
+          else header.style.boxShadow='none';
+        });
+        // Ensure focusable landmarks
+        document.documentElement.setAttribute('lang', 'id');
+      })();
+    </script>
+
+  </body>
+</b:template>

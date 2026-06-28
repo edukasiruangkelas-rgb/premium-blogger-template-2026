@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#FF6A00"/>
+      <stop offset="1" stop-color="#FF8A33"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="#FFFFFF"/>
+
+  <!-- Header -->
+  <rect x="40" y="26" width="1120" height="68" rx="8" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="70" y="70" font-family="Poppins, Arial" font-size="20" font-weight="700" fill="#222">Premium Blogger</text>
+  <rect x="980" y="40" width="120" height="34" rx="6" fill="url(#g)"/>
+  <text x="1004" y="63" font-family="Poppins, Arial" font-size="14" fill="#fff">Subscribe</text>
+
+  <!-- Hero -->
+  <rect x="40" y="110" width="760" height="180" rx="10" fill="#FFF7F0" stroke="#FFE6D7"/>
+  <rect x="60" y="130" width="360" height="120" rx="6" fill="#FFD9B8"/>
+  <text x="440" y="160" font-family="Poppins, Arial" font-size="22" font-weight="600" fill="#222">Judul Hero / Featured Post</text>
+  <text x="440" y="190" font-family="Poppins, Arial" font-size="14" fill="#666">Deskripsi singkat tentang posting unggulan yang menarik pengunjung.</text>
+  <rect x="440" y="205" width="120" height="36" rx="8" fill="#FF6A00"/>
+  <text x="464" y="230" font-family="Poppins, Arial" font-size="13" fill="#fff">Baca Selengkapnya</text>
+
+  <!-- Sidebar box -->
+  <rect x="820" y="110" width="340" height="180" rx="10" fill="#FAFAFA" stroke="#F0F0F0"/>
+  <text x="840" y="140" font-family="Poppins, Arial" font-size="16" font-weight="600" fill="#222">Sidebar</text>
+
+  <!-- Post cards grid -->
+  <g>
+    <rect x="40" y="310" width="340" height="160" rx="10" fill="#fff" stroke="#F0F0F0"/>
+    <rect x="40" y="310" width="340" height="90" rx="10" fill="#EFEFEF"/>
+    <text x="60" y="422" font-family="Poppins, Arial" font-size="16" font-weight="600" fill="#222">Judul Post 1</text>
+
+    <rect x="420" y="310" width="340" height="160" rx="10" fill="#fff" stroke="#F0F0F0"/>
+    <rect x="420" y="310" width="340" height="90" rx="10" fill="#EFEFEF"/>
+    <text x="440" y="422" font-family="Poppins, Arial" font-size="16" font-weight="600" fill="#222">Judul Post 2</text>
+
+    <rect x="800" y="310" width="340" height="160" rx="10" fill="#fff" stroke="#F0F0F0"/>
+    <rect x="800" y="310" width="340" height="90" rx="10" fill="#EFEFEF"/>
+    <text x="820" y="422" font-family="Poppins, Arial" font-size="16" font-weight="600" fill="#222">Judul Post 3</text>
+  </g>
+
+  <!-- Footer -->
+  <rect x="40" y="500" width="1120" height="140" rx="8" fill="#F6F6F6"/>
+  <text x="70" y="540" font-family="Poppins, Arial" font-size="14" fill="#666">© 2026 Premium Blogger Template • Privacy Policy</text>
+
+</svg>
