@@ -59,10 +59,11 @@
     <meta charset='utf-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1'/>
     <title><data:blog.pageTitle/></title>
-    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap' rel='stylesheet'>
+    <!-- NOTE: ampersand in URL must be escaped for XML -->
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap' rel='stylesheet'/>
 
     <!-- Basic meta for SEO & Social -->
-    <meta expr:name='&quot;description&quot;' expr:content='data:blog.metaDescription'/>
+    <meta name='description' expr:content='data:blog.metaDescription'/>
     <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
     <meta expr:content='data:blog.title' property='og:site_name'/>
     <meta expr:content='data:blog.metaDescription' property='og:description'/>
