@@ -1,0 +1,158 @@
+@import 'variables.css';
+
+/* Large Screens (1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: var(--container-desktop);
+  }
+}
+
+/* Extra Large Screens (1400px and up) */
+@media (min-width: 1400px) {
+  .container-wide {
+    max-width: var(--container-wide);
+  }
+}
+
+/* Tablets (992px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    max-width: 960px;
+  }
+
+  h1 {
+    font-size: var(--font-size-4xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* Small Tablets (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .container {
+    max-width: 540px;
+  }
+
+  h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile (< 576px) */
+@media (max-width: 575px) {
+  .container {
+    max-width: 100%;
+    padding: 0 var(--spacing-md);
+  }
+
+  h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    gap: var(--spacing-md);
+  }
+
+  .sidebar-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+/* Print Media */
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none;
+  }
+
+  body {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0F172A;
+    color: #F1F5F9;
+  }
+
+  header {
+    background-color: #1E293B;
+    border-bottom-color: #334155;
+  }
+
+  .card,
+  .form-control {
+    background-color: #1E293B;
+    border-color: #334155;
+    color: #F1F5F9;
+  }
+
+  .nav-link {
+    color: #F1F5F9;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast */
+@media (prefers-contrast: more) {
+  :root {
+    --color-primary: #5A1FA1;
+    --color-border: #000;
+  }
+}

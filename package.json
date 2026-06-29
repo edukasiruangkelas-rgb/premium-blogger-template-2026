@@ -1,0 +1,56 @@
+{
+  "name": "premium-blogger-template-2026",
+  "version": "1.0.0",
+  "description": "Premium Blogger Template dengan desain ungu dan putih, header scrolling, dan dukungan tools layout",
+  "main": "src/js/main.js",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "build:blogger": "node scripts/build-blogger.js",
+    "minify": "node scripts/minify.js",
+    "optimize": "node scripts/optimize.js",
+    "test": "jest",
+    "test:accessibility": "jest --testPathPattern=accessibility",
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write \"src/**/*.{js,css,html}\""
+  },
+  "keywords": [
+    "blogger",
+    "template",
+    "premium",
+    "blog",
+    "responsive",
+    "seo",
+    "tools"
+  ],
+  "author": "edukasiruangkelas-rgb",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.22.0",
+    "@babel/preset-env": "^7.22.0",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.8.1",
+    "cssnano": "^6.0.0",
+    "eslint": "^8.43.0",
+    "jest": "^29.5.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss": "^8.4.24",
+    "postcss-loader": "^7.3.3",
+    "prettier": "^2.8.8",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.3",
+    "terser-webpack-plugin": "^5.3.8",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "core-js": "^3.31.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ]
+}
